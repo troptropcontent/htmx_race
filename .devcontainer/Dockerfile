@@ -4,4 +4,3 @@ RUN apt update
 RUN apt install sqlite3 
 
 RUN gem install rails
-
