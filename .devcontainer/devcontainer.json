@@ -6,7 +6,7 @@
 	"build": {
 		// Path is relative to the devcontainer.json file.
 		"dockerfile": "Dockerfile"
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -15,7 +15,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "ruby --version",
+	"postCreateCommand": "bundle install && rails db:migrate"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
