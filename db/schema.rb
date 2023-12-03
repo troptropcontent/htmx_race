@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_03_170632) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_03_170802) do
+  create_table "commits", force: :cascade do |t|
+    t.integer "participant_id", null: false
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_commits_on_participant_id"
+  end
+
   create_table "participants", force: :cascade do |t|
     t.integer "race_id", null: false
     t.integer "user_id", null: false
@@ -47,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_03_170632) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commits", "participants"
   add_foreign_key "participants", "races"
   add_foreign_key "participants", "users"
   add_foreign_key "race_owners", "races"
