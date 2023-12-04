@@ -9,13 +9,22 @@
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0" : "0.0.4"
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bundle install && rails db:migrate"
+	"postCreateCommand": "bundle install && rails db:migrate",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Shopify.ruby-extensions-pack"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!
-    load_and_authorize_resource
+    with_options unless: :devise_controller? do |controller|
+        controller.before_action :authenticate_user!
+        controller.load_and_authorize_resource
+    end
 end
