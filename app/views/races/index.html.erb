@@ -1,2 +1,6 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+
+<% if @races.empty? %>
+  <p>You currently are not associated to any race yet</p>
+<% else %>
+  <%= render(Race::ItemComponent.with_collection(@races, user: current_user)) %>
+<% end %>
